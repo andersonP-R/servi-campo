@@ -1,0 +1,31 @@
+---
+import { COLORS } from "../../utils";
+import Nav from "../../components/ui/Nav.astro";
+const { white } = COLORS;
+// console.log(isMobile);
+---
+
+<header class="header">
+  <h1 class="logo">Logo</h1>
+  <Nav />
+</header>
+
+<style define:vars={{ white }}>
+  @media (width > 430px) {
+    .header {
+      padding: 0px 40px;
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  .logo {
+    color: red;
+  }
+</style>

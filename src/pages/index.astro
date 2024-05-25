@@ -1,0 +1,25 @@
+---
+import Header from "../components/ui/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../sections/home-page/Hero.astro";
+---
+
+<Layout title="Servi Campo">
+  <Header />
+  <main class="wrapper">
+    <Hero />
+  </main>
+</Layout>
+
+<style>
+  .wrapper {
+    width: 100vw;
+    padding: 0px 20px;
+  }
+
+  @media (width > 430px) {
+    .wrapper {
+      padding: 0px 100px;
+    }
+  }
+</style>
