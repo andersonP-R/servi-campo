@@ -1,8 +1,10 @@
 ---
+import { COLORS } from "../utils";
+
 interface Props {
   title: string;
 }
-
+const { white } = COLORS;
 const { title } = Astro.props;
 ---
 
@@ -23,7 +25,7 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
-<style is:global>
+<style is:global define:vars={{ white }}>
   * {
     box-sizing: border-box;
     padding: 0px;
@@ -31,7 +33,7 @@ const { title } = Astro.props;
     font-family: monospace;
   }
   html {
-    background-color: #eee;
+    background-color: var(--white);
     scrollbar-width: thin;
     scroll-behavior: smooth;
     /* scrollbar-color: var(--gray) var(--black); */
