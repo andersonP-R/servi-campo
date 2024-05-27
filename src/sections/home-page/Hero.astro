@@ -1,3 +1,58 @@
-<section>
-  <p>some text</p>
+---
+import { Image } from "astro:assets";
+import shape from "../../assets/shape-5.png";
+---
+
+<section class="hero-container">
+  <div class="wrapper">
+    <div class="image">
+      <Image src={shape} alt="shape-1" class="shape-1" loading="eager" />
+    </div>
+
+    <h1 class="title">Productos de calidad</h1>
+    <h2 class="sub-title">
+      Encuentra productos respaldados por empresas confiables
+    </h2>
+  </div>
 </section>
+
+<style>
+  .hero-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .image {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .shape-1 {
+    width: 100%;
+    height: 560px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .sub-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: lighter;
+  }
+
+  @media (width > 430px) {
+    .shape-1 {
+      height: 530px;
+    }
+  }
+</style>
