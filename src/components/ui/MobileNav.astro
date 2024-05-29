@@ -1,28 +1,90 @@
 ---
+import { COLORS } from "../../utils";
 import HamburguerButton from "./HamburguerButton.astro";
+const { dark_green, white } = COLORS;
 ---
 
 <>
   <HamburguerButton />
 
   <nav class="nav">
-    <ul>
-      <li>
+    <ul class="nav-links">
+      <li class="nav-link">
         <a href="#">Inicio</a>
-      </li><li>
+      </li>
+      <li class="nav-link">
         <a href="#">Productos</a>
       </li>
-      <li>
+      <li class="nav-link">
         <a href="#">Servicios</a>
       </li>
     </ul>
   </nav>
 </>
-<style>
+
+<script>
+  import { $ } from "../../helpers";
+  let state = false;
+
+  const button = $("#button");
+  const nav = $(".nav");
+  const link = document.querySelectorAll(".nav-link a");
+
+  const handleClick = () => (state = !state);
+
+  button?.addEventListener("click", () => {
+    handleClick();
+    if (state) {
+      nav?.classList.add("active");
+    } else {
+      nav?.classList.remove("active");
+    }
+  });
+
+  link.forEach((linkButt) => {
+    linkButt.addEventListener("click", () => {
+      button?.classList.remove("open");
+      handleClick();
+      if (state) {
+        nav?.classList.add("active");
+      } else {
+        nav?.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+<style define:vars={{ dark_green, white }}>
   .nav {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 80vw;
+    height: 100vh;
+    padding: 10px;
+    background-color: var(--white);
+    transition: left 0.2s ease;
+    box-shadow: 2px 2px 10px var(--white);
+  }
+
+  .nav.active {
+    left: 0;
+  }
+
+  .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    /* display: none; */
+    gap: 20px;
+    list-style: none;
+    font-size: 30px;
+  }
+
+  .nav-link {
+    /* border-bottom: 1px solid var(--dark_green); */
+  }
+
+  .nav-link a {
+    color: var(--dark_green);
+    text-decoration: none;
   }
 </style>
