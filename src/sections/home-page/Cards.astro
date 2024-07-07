@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import cow from "../../assets/generate-a-cow-.png";
+import pig2 from "../../assets/pig2.png";
+import chicken from "../../assets/chicke.png";
+---
+
+<section id="">
+  <div class="wrapper">
+    <div class="box max-performance">
+      <h2 class="box-title">Bovinos</h2>
+      <Image src={cow} alt="shape-1" class="cow-img" loading="eager" />
+      <p class="box-descrip">
+        Mayor productividad, rendimiento y bienestar para ganado.
+      </p>
+    </div>
+
+    <div class="box quality-prods">
+      <h2 class="box-title">Porcinos</h2>
+      <Image src={pig2} alt="shape-1" class="cow-img" loading="eager" />
+      <p class="box-descrip">
+        Formulados específicamente para las necesidades fisiológicas porcinas,
+        con opciones de administración oral, inyectable y tópica para facilitar
+        su uso en granjas.
+      </p>
+    </div>
+
+    <div class="box low-prices">
+      <h2 class="box-title">Avícola</h2>
+      <Image src={chicken} alt="shape-1" class="cow-img" loading="eager" />
+      <p class="box-descrip">
+        Disponibles en diversas presentaciones como soluciones orales,
+        inyectables y aditivos para el agua o el alimento, adaptados a las
+        necesidades específicas de las aves y los sistemas de producción avícola
+        modernos.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    height: auto;
+    width: 100vw;
+    border: 1px solid red;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .box {
+    /* height: calc(100vh / 3); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .box-title {
+    font-size: 40px;
+    color: #000;
+  }
+
+  .cow-img {
+    width: 100%;
+    height: 400px;
+  }
+
+  .box-descrip {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 0 10px;
+  }
+</style>
