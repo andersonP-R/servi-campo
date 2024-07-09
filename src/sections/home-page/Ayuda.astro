@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import LinkButton from "../../components/ui/LinkButton.astro";
+import cow from "../../assets/cow.jpg";
+---
+
+<section id="ayuda-section">
+  <div class="wrapper">
+    <div class="layer"></div>
+    <Image src={cow} alt="shape-1" class="cow-img" loading="eager" />
+    <div class="descrip">
+      <p>¿Necesitas una asesoria personalizada?</p>
+      <LinkButton url="#" title="Escribenos!" />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100vw;
+    height: auto;
+  }
+  .wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .layer {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+  }
+
+  .cow-img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+  }
+
+  .descrip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+  }
+
+  .descrip p {
+    font-size: 18px;
+  }
+</style>
