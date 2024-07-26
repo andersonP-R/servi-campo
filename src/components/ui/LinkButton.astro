@@ -1,22 +1,25 @@
 ---
+import { COLORS } from "../../utils";
+
 interface Props {
   url: string;
   title: string;
 }
 const { url, title } = Astro.props;
+const { dark_green } = COLORS;
 ---
 
 <a href={url} class="link-btn">
   {title}
 </a>
 
-<style>
+<style define:vars={{ dark_green }}>
   .link-btn {
     display: block;
     width: max-content;
     margin-top: 10px;
-    background-color: darkkhaki;
-    color: #000;
+    background-color: var(--dark_green);
+    color: #fff;
     text-decoration: none;
     border-radius: 20px;
     padding: 10px 20px;

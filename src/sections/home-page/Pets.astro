@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+
+import dog from "../../assets/dog-reversed.png";
+import dogsImage from "../../assets/dogs.png";
+
+import cat from "../../assets/cat2.png";
+import cats from "../../assets/cats.png";
+import LinkButton from "../../components/ui/LinkButton.astro";
+---
+
+<section id="pets-section">
+  <div class="wrapper">
+    <div class="box dog">
+      <div class="pet-desc">
+        <h2>Productos para los peludos</h2>
+        <LinkButton title="Mas información" url="#" />
+      </div>
+      <div class="pet-img-rigth">
+        <Image src={dog} alt="dog" class="pet-img__asset" />
+      </div>
+      <div class="pet-img-left">
+        <Image src={dogsImage} alt="dogs" class="pet-img__asset" />
+      </div>
+    </div>
+
+    <div class="box dog">
+      <div class="pet-desc">
+        <h2>Productos para gatos</h2>
+        <LinkButton title="Mas información" url="#" />
+      </div>
+      <div class="pet-img-rigth">
+        <Image src={cat} alt="dog" class="pet-img__asset" />
+      </div>
+      <div class="pet-img-left">
+        <Image src={cats} alt="dogs" class="pet-img__asset" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100vw;
+    height: auto;
+    margin-bottom: 100px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    /* padding: 0 50px; */
+  }
+
+  .box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pet-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 15px;
+    font-size: 20px;
+    z-index: 10;
+  }
+
+  .pet-img-rigth {
+    display: none;
+    position: absolute;
+  }
+
+  .pet-img-left {
+    position: absolute;
+    left: 0;
+  }
+
+  .pet-img__asset {
+    width: 400px;
+    height: 400px;
+    opacity: 0.9;
+  }
+
+  @media (width > 430px) {
+    .pet-img-rigth {
+      display: block;
+      right: 0;
+    }
+  }
+</style>

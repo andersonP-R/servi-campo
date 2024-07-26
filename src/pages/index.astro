@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../sections/home-page/Hero.astro";
 import Cards from "../sections/home-page/Cards.astro";
 import Ayuda from "../sections/home-page/Ayuda.astro";
+import Pets from "../sections/home-page/Pets.astro";
+import Whastapp from "../components/icons/Whastapp.icon.astro";
 ---
 
 <Layout title="Servi Campo">
@@ -12,7 +14,9 @@ import Ayuda from "../sections/home-page/Ayuda.astro";
     <Hero />
     <Cards />
     <Ayuda />
+    <Pets />
   </main>
+  <Whastapp width="55" height="55" />
 </Layout>
 
 <style>
