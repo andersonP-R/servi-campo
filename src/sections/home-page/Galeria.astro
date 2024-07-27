@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import LinkButton from "../../components/ui/LinkButton.astro";
+import cow2 from "../../assets/cow-2.jpg";
+---
+
+<section id="galery" class="galery-section">
+  <div class="wrapper">
+    <div class="img-box">
+      <Image src={cow2} alt="cow-2" class="img-asset" />
+    </div>
+    <div class="desc">
+      <h2>Galeria de imágenes</h2>
+      <LinkButton url="#" title="Ver galeria" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .galery-section {
+    width: 100vw;
+    height: auto;
+    margin-bottom: 100px;
+  }
+
+  .wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-box {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .img-asset {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .desc {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100px;
+    text-align: center;
+    background-color: #ffffff18;
+  }
+
+  .desc h2 {
+    font-size: 40px;
+    color: #fff;
+  }
+</style>
