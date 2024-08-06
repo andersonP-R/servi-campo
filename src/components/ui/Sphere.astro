@@ -1,0 +1,19 @@
+---
+interface Props {
+  width: string;
+  heigth: string;
+  color: string;
+}
+
+const { width, heigth, color } = Astro.props;
+---
+
+<svg
+  width={width}
+  height={heigth}
+  viewBox="0 0 586 584"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <ellipse cx="293" cy="292" rx="293" ry="292" fill={color}></ellipse>
+</svg>
