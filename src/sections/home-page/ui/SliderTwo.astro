@@ -1,0 +1,50 @@
+---
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">test 1</div>
+    <div class="swiper-slide">test 2</div>
+    <div class="swiper-slide">test 3</div>
+  </div>
+  <!-- <div class="swiper-pagination"></div> -->
+  <!-- <div class="swiper-button-prev"></div> -->
+  <!-- <div class="swiper-button-next"></div> -->
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation, Pagination, Autoplay, EffectFade],
+    autoplay: {
+      delay: 2000,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    loop: true,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+  });
+</script>
+
+<style>
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid green;
+  }
+</style>

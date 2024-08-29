@@ -1,15 +1,18 @@
 ---
 import { COLORS } from "../../utils";
 import Facebook from "../icons/Facebook.icon.astro";
-
-const { green, white } = COLORS;
+import logo from "../../assets/logo.png";
+import { Image } from "astro:assets";
+const { green, white, dark_green } = COLORS;
 ---
 
 <footer id="footer" class="footer">
   <div class="wrapper">
-    <div class="box logo">logo</div>
+    <div class="box logo">
+      <Image src={logo} alt="logo" class="logo-asset" />
+    </div>
 
-    <div class="box map">map || addres</div>
+    <div class="box map"></div>
     <div class="box other-links">
       <span>Siguenos en nuestras redes sociales:</span>
       <div class="logos">
@@ -20,24 +23,39 @@ const { green, white } = COLORS;
   </div>
 </footer>
 
-<style define:vars={{ green, white }}>
+<style define:vars={{ green, white, dark_green }}>
   .footer {
+    position: relative;
     width: 100vw;
     height: auto;
     padding: 10px;
-    background-color: var(--green);
+    background-color: var(--dark_green);
   }
 
   .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 2rem;
   }
 
   .box {
     height: auto;
-    padding: 1rem;
+    /* padding: 1rem; */
+  }
+
+  .logo {
+    position: absolute;
+    top: -4rem;
+  }
+
+  .logo-asset {
+    width: 8.5rem;
+    height: 8rem;
+  }
+
+  .map {
+    margin-top: 4rem;
   }
 
   .other-links {

@@ -8,7 +8,7 @@ import LinkButton from "../../components/ui/LinkButton.astro";
 const { black } = COLORS;
 ---
 
-<section id="" class="cards-section">
+<section id="card-section" class="cards-section">
   <div class="wrapper">
     <div class="box max-performance">
       <h2 class="box-title">Bovinos</h2>
@@ -18,7 +18,6 @@ const { black } = COLORS;
       </p>
       <LinkButton url="#" title="Mas información" />
     </div>
-
     <div class="box quality-prods">
       <h2 class="box-title">Porcinos</h2>
       <Image src={pig2} alt="shape-1" class="cow-img" loading="eager" />
@@ -43,6 +42,24 @@ const { black } = COLORS;
     </div>
   </div>
 </section>
+
+<script>
+  import { observeElementInView } from "../../utils";
+  const element = document.querySelector(".max-performance");
+  if (element) {
+    const cleanup = observeElementInView(
+      element,
+      () => {
+        alert("Element is now in view!");
+        // Perform any actions you need when the element comes into view
+      },
+      true
+    );
+
+    // Call cleanup() when you want to stop observing (e.g., in a React useEffect cleanup function)
+    // cleanup();
+  }
+</script>
 
 <style define:vars={{ black }}>
   .cards-section {
