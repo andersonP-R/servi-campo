@@ -4,10 +4,10 @@ import HamburguerButton from "./HamburguerButton.astro";
 const { dark_green, white } = COLORS;
 ---
 
-<>
+<div id="mobile-nav">
   <HamburguerButton />
 
-  <nav class="nav">
+  <div class="nav">
     <ul class="nav-links">
       <li class="nav-link">
         <a href="#">Inicio</a>
@@ -19,8 +19,8 @@ const { dark_green, white } = COLORS;
         <a href="#">Servicios</a>
       </li>
     </ul>
-  </nav>
-</>
+  </div>
+</div>
 
 <script>
   import { $ } from "../../helpers";
@@ -55,6 +55,12 @@ const { dark_green, white } = COLORS;
 </script>
 
 <style define:vars={{ dark_green, white }}>
+  #mobile-nav {
+    @media (width > 599px) {
+      display: none;
+    }
+  }
+
   .nav {
     position: absolute;
     top: 0;

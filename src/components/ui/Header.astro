@@ -7,33 +7,32 @@ import logo from "../../assets/logo.png";
 ---
 
 <header class="header">
-  <div>
+  <>
     <Image src={logo} alt="logo" class="logo" />
-  </div>
+  </>
   <Nav />
 </header>
 
 <style define:vars={{ white }}>
   .header {
-    position: fixed;
+    position: sticky;
+    top: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     width: 100%;
-    /* background-color: ; */
-    padding: 0px 20px;
+    background-color: var(--white);
+    padding: 0px 30px;
     z-index: 20;
+
+    @media (width < 600px) {
+      padding: 0px 10px;
+    }
   }
 
   .logo {
     width: 4rem;
     height: 4rem;
-  }
-
-  @media (width > 430px) {
-    .header {
-      padding: 0px 40px;
-    }
   }
 </style>
