@@ -4,10 +4,11 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../sections/home-page/Hero.astro";
 import Cards from "../sections/home-page/Cards.astro";
 import Ayuda from "../sections/home-page/Ayuda.astro";
-import Pets from "../sections/home-page/Pets.astro";
 import Whastapp from "../components/icons/Whastapp.icon.astro";
 import Galeria from "../sections/home-page/Galeria.astro";
 import Footer from "../components/ui/Footer.astro";
+import GatosSection from "../sections/home-page/GatosSection.astro";
+import PerrosSection from "../sections/home-page/PerrosSection.astro";
 ---
 
 <Layout title="Servi Campo">
@@ -16,22 +17,10 @@ import Footer from "../components/ui/Footer.astro";
     <Hero />
     <Cards />
     <Ayuda />
-    <Pets />
-    <Galeria />
+    <GatosSection />
+    <PerrosSection />
+    <!-- <Galeria /> -->
   </main>
   <Whastapp width="55" height="55" />
   <Footer />
 </Layout>
-
-<style>
-  .wrapper {
-    width: 100vw;
-    /* padding: 0px 20px; */
-  }
-
-  @media (width > 430px) {
-    .wrapper {
-      /* padding: 0px 100px; */
-    }
-  }
-</style>
