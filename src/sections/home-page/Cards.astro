@@ -4,48 +4,42 @@ import { COLORS } from "../../utils";
 import cow from "../../assets/generate-a-cow-.png";
 import pig2 from "../../assets/pig2.png";
 import chicken from "../../assets/chicke.png";
-import LinkButton from "../../components/ui/LinkButton.astro";
+import Section from "../../components/ui/Section.astro";
+import CardComponent from "../../components/ui/CardComponent.astro";
 const { black } = COLORS;
 ---
 
-<section id="card-section" class="cards-section">
+<Section id="card-section">
   <div class="wrapper">
-    <div class="box max-performance">
-      <h2 class="box-title">Bovinos</h2>
-      <Image src={cow} alt="shape-1" class="cow-img" loading="eager" />
-      <p class="box-descrip">
-        Mayor productividad, rendimiento y bienestar para ganado.
-      </p>
-      <LinkButton url="#" title="Mas información" />
-    </div>
-    <div class="box quality-prods">
-      <h2 class="box-title">Porcinos</h2>
-      <Image src={pig2} alt="shape-1" class="cow-img" loading="eager" />
-      <p class="box-descrip">
-        Formulados específicamente para las necesidades fisiológicas porcinas,
-        con opciones de administración oral, inyectable y tópica para facilitar
-        su uso en granjas.
-      </p>
-      <LinkButton url="#" title="Mas información" />
-    </div>
+    <CardComponent
+      title="Bovínos"
+      image={cow}
+      altImage="cow-image"
+      description="Mayor productividad, mejor rendimiento y óptimo bienestar para un ganado más saludable y eficiente."
+      urlButton="#"
+    />
 
-    <div class="box low-prices">
-      <h2 class="box-title">Avícola</h2>
-      <Image src={chicken} alt="shape-1" class="cow-img" loading="eager" />
-      <p class="box-descrip">
-        Disponibles en diversas presentaciones como soluciones orales,
-        inyectables y aditivos para el agua o el alimento, adaptados a las
-        necesidades específicas de las aves y los sistemas de producción avícola
-        modernos.
-      </p>
-      <LinkButton url="#" title="Mas información" />
-    </div>
+    <CardComponent
+      title="Porcinos"
+      image={pig2}
+      altImage="pig-image"
+      description="Diseñados para porcinos, con administración oral, inyectable y tópica para granjas."
+      urlButton="#"
+    />
+
+    <CardComponent
+      title="Avícola"
+      image={chicken}
+      altImage="chicken-image"
+      description="Disponibles en soluciones orales, inyectables y aditivos para agua o alimento, adaptados a la avicultura moderna."
+      urlButton="#"
+    />
   </div>
-</section>
+</Section>
 
 <script>
   import { observeElementInView } from "../../utils";
-  const element = document.querySelector(".max-performance");
+  const element = document.querySelector(".wrapper");
   if (element) {
     const cleanup = observeElementInView(
       element,
@@ -62,42 +56,11 @@ const { black } = COLORS;
 </script>
 
 <style define:vars={{ black }}>
-  .cards-section {
-    width: 100vw;
-    height: auto;
-    overflow: hidden;
-    padding: 0 1rem;
-  }
-
   .wrapper {
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-  }
-
-  .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 8rem;
-  }
-
-  .box-title {
-    font-size: 3rem;
-    color: var(--black);
-  }
-
-  .cow-img {
-    width: 100%;
-    height: 380px;
-  }
-
-  .box-descrip {
-    margin-top: 2rem;
-    font-size: 1.3rem;
-    line-height: 2.2rem;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
+    gap: 40px;
   }
 </style>

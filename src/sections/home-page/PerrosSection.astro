@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+import dog from "../../assets/dog-reversed.png";
+import dogsImage from "../../assets/dogs.png";
+import LinkButton from "../../components/ui/LinkButton.astro";
+import Section from "../../components/ui/Section.astro";
+---
+
+<Section id="perros-section">
+  <div class="wrapper">
+    <div class="pet-desc">
+      <h2>Servicios para perros</h2>
+      <p>
+        Atención especializada para el cuidado, bienestar y felicidad de tu
+        perro.
+      </p>
+      <LinkButton title="Mas información" url="#" />
+    </div>
+    <div class="pet-img-rigth">
+      <Image src={dog} alt="dog" class="pet-img__asset" />
+    </div>
+    <div class="pet-img-left">
+      <Image src={dogsImage} alt="dogs" class="pet-img__asset" />
+    </div>
+  </div>
+</Section>
+
+<style>
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pet-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 0.6rem;
+    font-size: 1.7rem;
+    padding: 0 1rem;
+    z-index: 10;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    width: 400px;
+  }
+
+  .pet-img-rigth {
+    position: absolute;
+    right: 0;
+  }
+
+  .pet-img-left {
+    position: absolute;
+    left: 0;
+  }
+
+  .pet-img__asset {
+    width: 400px;
+    height: 400px;
+  }
+</style>

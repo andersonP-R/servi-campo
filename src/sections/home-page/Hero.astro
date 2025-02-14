@@ -1,39 +1,29 @@
 ---
-import { Image } from "astro:assets";
 import LinkButton from "../../components/ui/LinkButton.astro";
+import Section from "../../components/ui/Section.astro";
 import Sphere from "../../components/ui/Sphere.astro";
 import SliderOne from "../home-page/ui/SliderOne.astro";
-import SliderTwo from "../home-page/ui/SliderTwo.astro";
 ---
 
-<section class="hero-container">
+<Section id="hero-section">
   <div class="wrapper">
-    <div class="box box-image">
+    <div class="box-image">
       <SliderOne />
+      <div class="sphere">
+        <Sphere width="400" heigth="400" color={"#4c6d32c2"} />
+      </div>
     </div>
 
-    <div class="box box-desc">
-      <hp class="sub-title">
-        En <strong>Servi campo</strong> nos esforzamos por brindarte la mejor atención
-        con los mejores productos.
-      </hp>
+    <div class="box-desc">
+      <p class="sub-title">
+        En Servicampo nos esforzamos cada día para brindarte una atención
+        excepcional y los mejores productos del mercado. Nuestro compromiso es
+        ofrecerte calidad, confianza y soluciones adaptadas a tus necesidades.
+      </p>
       <LinkButton url="#" title="Ver productos" />
     </div>
-
-    <!-- Spheres -->
-    <div class="sphere sphere-1">
-      <Sphere width="180" heigth="180" color="red" />
-    </div>
-
-    <div class="sphere sphere-2">
-      <Sphere width="280" heigth="280" color="blue" />
-    </div>
-
-    <div class="sphere sphere-3">
-      <Sphere width="600" heigth="600" color="green" />
-    </div>
   </div>
-</section>
+</Section>
 
 <script>
   // import { observeElementInView } from "../../utils";
@@ -43,132 +33,74 @@ import SliderTwo from "../home-page/ui/SliderTwo.astro";
   const boxs = document.querySelectorAll(".box");
 
   const animation = anime.timeline({});
-  animation
-    .add(
-      {
-        targets: spheres[0],
-        opacity: 0.3,
-        easing: "spring(1, 80, 10, 0)",
-      },
-      "-=100"
-    )
-    .add(
-      {
-        targets: spheres[1],
-        opacity: 0.3,
-        easing: "spring(1, 80, 10, 0)",
-      },
-      "-=1300"
-    )
-    .add(
-      {
-        targets: spheres[2],
-        opacity: 0.3,
-        easing: "spring(1, 80, 10, 0)",
-      },
-      "-=1400"
-    )
-    .add(
-      {
-        targets: boxs,
-        opacity: 1,
-        translateY: [200, 0],
-        easing: "easeInOutQuad",
-        duration: 800,
-      },
-      "-=1300"
-    );
+  // animation
+  //   .add(
+  //     {
+  //       targets: spheres[0],
+  //       opacity: 0.3,
+  //       easing: "spring(1, 80, 10, 0)",
+  //     },
+  //     "-=100"
+  //   )
+  //   .add(
+  //     {
+  //       targets: spheres[1],
+  //       opacity: 0.3,
+  //       easing: "spring(1, 80, 10, 0)",
+  //     },
+  //     "-=1300"
+  //   )
+  //   .add(
+  //     {
+  //       targets: spheres[2],
+  //       opacity: 0.3,
+  //       easing: "spring(1, 80, 10, 0)",
+  //     },
+  //     "-=1400"
+  //   )
+  //   .add(
+  //     {
+  //       targets: boxs,
+  //       opacity: 1,
+  //       translateY: [200, 0],
+  //       easing: "easeInOutQuad",
+  //       duration: 800,
+  //     },
+  //     "-=1300"
+  //   );
 </script>
 
 <style>
-  .hero-container {
-    width: 100vw;
-    height: auto;
-    overflow: hidden;
-    margin-bottom: 7rem;
-  }
-
   .wrapper {
-    width: auto;
-    height: 100vh;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    opacity: 0;
+    justify-content: space-evenly;
+    height: 100%;
   }
 
   .box-image {
-    height: 35rem;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+
+    .sphere {
+      position: absolute;
+    }
   }
 
+  /* BOX DECRIPTION STYLES */
   .box-desc {
-    height: calc((100vh - 35rem) - 5rem);
+    width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-  }
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
 
-  .sphere {
-    position: absolute;
-    opacity: 0;
-    z-index: -10;
-  }
-
-  .sphere-1 {
-    bottom: 1rem;
-    left: -1rem;
-  }
-
-  .sphere-2 {
-    bottom: 14rem;
-    right: -7rem;
-  }
-
-  .sphere-3 {
-    top: -22rem;
-    left: -25rem;
-  }
-
-  .title {
-    font-size: 3rem;
-  }
-
-  .sub-title {
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: lighter;
-    line-height: 2.2rem;
-  }
-
-  .link-prods {
-    display: block;
-    margin-top: 10px;
-    background-color: darkkhaki;
-    color: #000;
-    text-decoration: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-  }
-
-  @media (width > 430px) {
-    .wrapper {
-      flex-direction: row;
-    }
-
-    .box-image {
-      height: calc(100vh - 5rem);
-      width: 50%;
+    .sub-title {
+      text-align: right;
+      font-size: 18px;
+      line-height: 30px;
     }
   }
 </style>

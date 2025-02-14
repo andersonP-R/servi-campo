@@ -1,9 +1,10 @@
 ---
 import LinkButton from "../../components/ui/LinkButton.astro";
+import Section from "../../components/ui/Section.astro";
 import styles from "./ui/styles.module.css";
 ---
 
-<section id="ayuda-section">
+<Section id="ayuda-section">
   <div class={styles.wrapper}>
     <div class={styles.layer}></div>
     <p class={styles.title}>¿Necesitas una asesoria personalizada?</p>
@@ -11,13 +12,6 @@ import styles from "./ui/styles.module.css";
       <LinkButton url="#" title="¡Envíanos un mensaje!" />
     </div>
   </div>
-</section>
+</Section>
 
-<style>
-  section {
-    width: 100vw;
-    height: auto;
-    overflow: hidden;
-    margin-bottom: 100px;
-  }
-</style>
+<style></style>
